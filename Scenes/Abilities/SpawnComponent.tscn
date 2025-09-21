@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://clyttp3wd6b4t"]
+
+[ext_resource type="Script" uid="uid://d3ukgvrbdrbtc" path="res://Scenes/Abilities/SpawnComponent.cs" id="1_tiok4"]
+
+[node name="SpawnComponent" type="Node"]
+script = ExtResource("1_tiok4")

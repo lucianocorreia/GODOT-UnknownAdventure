@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cksimw40wgk8w"]
+[gd_scene load_steps=5 format=3 uid="uid://cksimw40wgk8w"]
 
 [ext_resource type="Script" uid="uid://fwnlikc213jk" path="res://Scenes/Abilities/Ability.cs" id="1_lorfe"]
+[ext_resource type="Script" uid="uid://w1iehiqikgrt" path="res://Scenes/Abilities/AbilityAnimationRunner.cs" id="2_52m15"]
+[ext_resource type="PackedScene" uid="uid://blx3dmj3mgair" path="res://Scenes/Abilities/AbilityTargetPlayer.tscn" id="3_h7aik"]
+[ext_resource type="PackedScene" uid="uid://pe8prh3nqkqo" path="res://Scenes/Abilities/AbilityDealDamage.tscn" id="4_h4m8e"]
 
 [node name="SkeletonSlash" type="Node2D"]
 script = ExtResource("1_lorfe")
+
+[node name="AbilityAnimationRunner" type="Node" parent="."]
+script = ExtResource("2_52m15")
+
+[node name="AbilityTargetPlayer" parent="." instance=ExtResource("3_h7aik")]
+
+[node name="AbilityDealDamage" parent="." instance=ExtResource("4_h4m8e")]

@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://drm1tux56taai" path="res://Scenes/Skeleton.cs" id="1_abfcy"]
 [ext_resource type="Texture2D" uid="uid://be4yvxw8vwv6r" path="res://Assets/Skeleton_Sword/Skeleton_White/Skeleton_Without_VFX/Skeleton_01_White_Idle.png" id="1_vif15"]
 [ext_resource type="Texture2D" uid="uid://bl33sm0dveunw" path="res://Assets/Skeleton_Sword/Skeleton_White/Skeleton_Without_VFX/Skeleton_01_White_Walk.png" id="3_4ie6e"]
-[ext_resource type="PackedScene" uid="uid://cpwjp56ve0wmq" path="res://Scenes/Abilities/AbilityController.tscn" id="4_iuen5"]
 [ext_resource type="Texture2D" uid="uid://dwgx8e6px4463" path="res://Assets/Skeleton_Sword/Skeleton_White/Skeleton_With_VFX/Skeleton_01_White_Attack1.png" id="4_yek4v"]
-[ext_resource type="PackedScene" uid="uid://cksimw40wgk8w" path="res://Scenes/Abilities/SkeletonSlash.tscn" id="5_rxd7e"]
+[ext_resource type="Script" uid="uid://cdikpnhrv32ry" path="res://Scenes/Abilities/AbilityController.cs" id="5_rxd7e"]
+[ext_resource type="PackedScene" uid="uid://cksimw40wgk8w" path="res://Scenes/Abilities/SkeletonSlash.tscn" id="6_yek4v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_abfcy"]
 atlas = ExtResource("1_vif15")
@@ -216,15 +216,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ijbhh")
 }],
-"loop": true,
+"loop": false,
 "name": &"Slash",
-"speed": 5.0
+"speed": 10.0
 }]
 
-[node name="Skeleton" type="Node2D" node_paths=PackedStringArray("AnimatedSprite")]
+[node name="Skeleton" type="Node2D" node_paths=PackedStringArray("AbilityController", "AnimatedSprite")]
 z_index = 100
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_abfcy")
+AbilityController = NodePath("AbilityController")
 AnimatedSprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -233,6 +234,7 @@ sprite_frames = SubResource("SpriteFrames_87cwn")
 animation = &"Slash"
 autoplay = "Idle"
 
-[node name="AbilityController" parent="." instance=ExtResource("4_iuen5")]
+[node name="AbilityController" type="Node" parent="."]
+script = ExtResource("5_rxd7e")
 
-[node name="SkeletonSlash" parent="AbilityController" instance=ExtResource("5_rxd7e")]
+[node name="SkeletonSlash" parent="AbilityController" instance=ExtResource("6_yek4v")]

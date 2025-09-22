@@ -108,7 +108,7 @@ animations = [{
 
 [node name="Player" type="Node2D" node_paths=PackedStringArray("AbilityController", "WeaponSprite", "AnimatedSprite") groups=["Player"]]
 script = ExtResource("1_cvnsp")
-AbilityController = NodePath("")
+AbilityController = NodePath("AbilityController")
 WeaponSprite = NodePath("Weapon")
 AnimatedSprite = NodePath("AnimatedSprite2D")
 

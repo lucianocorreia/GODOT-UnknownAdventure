@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://blx3dmj3mgair"]
+
+[ext_resource type="Script" uid="uid://rv3g284cjonp" path="res://Scenes/Abilities/AbilityTargetPlayer.cs" id="1_o5lxe"]
+
+[node name="AbilityTargetPlayer" type="Node"]
+script = ExtResource("1_o5lxe")

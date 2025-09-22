@@ -84,11 +84,11 @@ public partial class Player : Entity
     {
         if (isMoving)
         {
-            AnimatedSprite.Play("Run");
+            PlayAnimation(new AnimationWrapper("Run"));
         }
         else
         {
-            AnimatedSprite.Play("Idle");
+            PlayAnimation(new AnimationWrapper("Idle"));
         }
     }
 

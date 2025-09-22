@@ -7,19 +7,19 @@ public partial class Enemy : Entity
     public float Speed { get; private set; } = 20f;
     [Export]
     public float StopDistance { get; private set; } = 15f;
+    [Export]
+    public AbilityController AbilityController { get; private set; }
 
     private Player player;
     private Vector2 velocity = Vector2.Zero;
     private float currentSpeed;
     private Vector2 lastPosition;
 
-
     public override void _Ready()
     {
         base._Ready();
         lastPosition = Position;
         player = GetTree().GetFirstNodeInGroup("Player") as Player;
-
     }
 
     public override void _Process(double delta)
@@ -33,6 +33,10 @@ public partial class Enemy : Entity
             if (Position.DistanceTo(player.Position) > StopDistance)
             {
                 Position += direction * Speed * (float)delta;
+            }
+            else
+            {
+                AbilityController.TriggerAbilityByIndex(0);
             }
 
             velocity = (Position - lastPosition) / (float)delta;
@@ -48,11 +52,11 @@ public partial class Enemy : Entity
     {
         if (currentSpeed <= 0)
         {
-            AnimatedSprite.Play("Idle");
+            PlayAnimation(new AnimationWrapper("Idle"));
         }
         else
         {
-            AnimatedSprite.Play("Run");
+            PlayAnimation(new AnimationWrapper("Run"));
         }
     }
 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://pe8prh3nqkqo"]
+
+[ext_resource type="Script" uid="uid://cs7u8xofm4f3c" path="res://Scenes/Abilities/AbilityDealDamage.cs" id="1_xcnps"]
+
+[node name="AbilityDealDamage" type="Node"]
+script = ExtResource("1_xcnps")

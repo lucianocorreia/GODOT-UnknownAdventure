@@ -5,19 +5,41 @@ public partial class Entity : Node2D
 {
     [Export]
     public AnimatedSprite2D AnimatedSprite { get; private set; }
+    [Export]
+    public float MaxHealth { get; private set; } = 50f;
 
     private AnimationWrapper currentAnimation;
+    private bool isDead = false;
+
+    public float Health { get; protected set; }
+
 
     public override void _Ready()
     {
         base._Ready();
         AnimatedSprite.AnimationFinished += OnAnimationFinished;
+        Health = MaxHealth;
     }
 
     public override void _ExitTree()
     {
         base._ExitTree();
         AnimatedSprite.AnimationFinished -= OnAnimationFinished;
+    }
+
+    public void ApplyDamage(float damage)
+    {
+        if (isDead) { return; }
+
+        Health -= damage;
+        Health = Math.Max(0, Health);
+
+        if (Health <= 0)
+        {
+
+            isDead = true;
+            GD.Print($"{Name} has died.");
+        }
     }
 
     public virtual void PlayAnimation(AnimationWrapper animation)

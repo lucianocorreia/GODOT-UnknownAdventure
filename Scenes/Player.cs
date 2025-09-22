@@ -8,9 +8,6 @@ public partial class Player : Entity
     const float SPEED = 100.0f;
 
     [Export]
-    public AnimatedSprite2D AnimatedSprite { get; private set; }
-
-    [Export]
     public AbilityController AbilityController { get; private set; }
 
     [Export]

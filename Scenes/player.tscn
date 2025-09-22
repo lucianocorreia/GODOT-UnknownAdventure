@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://dehjiosa8a05c"]
+[gd_scene load_steps=19 format=3 uid="uid://dehjiosa8a05c"]
 
 [ext_resource type="Script" uid="uid://dab7vshs42upt" path="res://Scenes/Player.cs" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bq0lxucdpbi38" path="res://Assets/AnimationSheet_Character.png" id="1_v0iea"]
-[ext_resource type="Script" uid="uid://cdikpnhrv32ry" path="res://Scenes/Abilities/AbilityController.cs" id="3_vgqql"]
-[ext_resource type="PackedScene" uid="uid://cba811d3wfdaw" path="res://Scenes/Abilities/SlashAbility.tscn" id="4_vgqql"]
+[ext_resource type="PackedScene" uid="uid://cpwjp56ve0wmq" path="res://Scenes/Abilities/AbilityController.tscn" id="4_vgqql"]
 [ext_resource type="Texture2D" uid="uid://d2g3ab25mtgv0" path="res://Assets/meleeAttack_plusCharacters+(1).png" id="5_fkybt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
@@ -107,11 +106,11 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("AnimatedSprite", "AbilityController", "WeaponSprite")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("AbilityController", "WeaponSprite", "AnimatedSprite") groups=["Player"]]
 script = ExtResource("1_cvnsp")
-AnimatedSprite = NodePath("AnimatedSprite2D")
-AbilityController = NodePath("AbilityController")
+AbilityController = NodePath("")
 WeaponSprite = NodePath("Weapon")
+AnimatedSprite = NodePath("AnimatedSprite2D")
 
 [node name="Weapon" type="Sprite2D" parent="."]
 visible = false
@@ -126,7 +125,4 @@ sprite_frames = SubResource("SpriteFrames_x3wgy")
 animation = &"Run"
 autoplay = "Idle"
 
-[node name="AbilityController" type="Node" parent="."]
-script = ExtResource("3_vgqql")
-
-[node name="Slash" parent="AbilityController" instance=ExtResource("4_vgqql")]
+[node name="AbilityController" parent="." instance=ExtResource("4_vgqql")]

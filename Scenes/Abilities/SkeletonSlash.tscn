@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cksimw40wgk8w"]
+
+[ext_resource type="Script" uid="uid://fwnlikc213jk" path="res://Scenes/Abilities/Ability.cs" id="1_lorfe"]
+
+[node name="SkeletonSlash" type="Node2D"]
+script = ExtResource("1_lorfe")

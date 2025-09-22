@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpwjp56ve0wmq"]
+
+[ext_resource type="Script" uid="uid://cdikpnhrv32ry" path="res://Scenes/Abilities/AbilityController.cs" id="1_kwvr5"]
+[ext_resource type="PackedScene" uid="uid://cba811d3wfdaw" path="res://Scenes/Abilities/SlashAbility.tscn" id="2_qtci4"]
+
+[node name="AbilityController" type="Node"]
+script = ExtResource("1_kwvr5")
+
+[node name="Slash" parent="." instance=ExtResource("2_qtci4")]

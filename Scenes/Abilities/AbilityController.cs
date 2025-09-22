@@ -16,7 +16,6 @@ public partial class AbilityController : Node
         entity = GetParent<Entity>();
 
         abilities = [.. GetChildren().OfType<Ability>()];
-        GD.Print("Abilities found: " + abilities.Length);
     }
 
     public override void _Process(double delta)
@@ -35,7 +34,6 @@ public partial class AbilityController : Node
     {
         if (index < 0 || index >= abilities.Length)
         {
-            GD.Print("Invalid ability index: " + index);
             return;
         }
 
@@ -50,7 +48,6 @@ public partial class AbilityController : Node
     {
         if (cooldowns.TryGetValue(ability, out float value) && value > 0)
         {
-            GD.Print("Ability on cooldown: " + ability.Name);
             return;
         }
 

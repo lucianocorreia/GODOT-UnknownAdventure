@@ -12,7 +12,7 @@ public partial class SpawnComponent : AbilityComponent
     [Export]
     public Vector2 Offset { get; private set; } = Vector2.Zero;
 
-    public override void Activate(AbilityContext context)
+    protected override void ActivateExec(AbilityContext context)
     {
         if (SceneToSpawn == null) { return; }
 

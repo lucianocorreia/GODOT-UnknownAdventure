@@ -1,10 +1,10 @@
+using System.Threading.Tasks;
 using Godot;
 
 public partial class AbilityAnimationRunner : AbilityComponent
 {
-    public override void Activate(AbilityContext context)
+    protected override void ActivateExec(AbilityContext context)
     {
-        base.Activate(context);
         context.Caster.PlayAnimation(new AnimationWrapper("Slash", true));
     }
 }

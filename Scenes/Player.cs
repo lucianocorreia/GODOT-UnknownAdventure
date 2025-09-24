@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 namespace Scenes;
 
@@ -31,6 +32,20 @@ public partial class Player : Entity
         HandleMovement(delta);
         HandleAbilities();
         HandleAnimation();
+    }
+
+    public override async void ShowDamageTakenEffectAsync()
+    {
+        if (AnimatedSprite.Material == null) { return; }
+
+        GD.Print("Player took damage effect");
+        for (int i = 0; i < 2; i++)
+        {
+            AnimatedSprite.Material.Set("shader_parameter/is_hurt", true);
+            await ToSignal(GetTree().CreateTimer(0.05f), "timeout");
+            AnimatedSprite.Material.Set("shader_parameter/is_hurt", false);
+            await ToSignal(GetTree().CreateTimer(0.05f), "timeout");
+        }
     }
 
     private void HandleAbilities()

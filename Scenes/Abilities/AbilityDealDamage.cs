@@ -6,9 +6,8 @@ public partial class AbilityDealDamage : AbilityComponent
     [Export]
     public float DamageAmount { get; private set; } = 10f;
 
-    public override void Activate(AbilityContext context)
+    protected override void ActivateExec(AbilityContext context)
     {
-        base.Activate(context);
         if (context.Target == null) { return; }
 
         if (context.Target is Entity entity)

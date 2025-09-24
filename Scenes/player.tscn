@@ -1,13 +1,19 @@
-[gd_scene load_steps=19 format=3 uid="uid://dehjiosa8a05c"]
+[gd_scene load_steps=21 format=3 uid="uid://dehjiosa8a05c"]
 
 [ext_resource type="Script" uid="uid://dab7vshs42upt" path="res://Scenes/Player.cs" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bq0lxucdpbi38" path="res://Assets/AnimationSheet_Character.png" id="1_v0iea"]
+[ext_resource type="Shader" uid="uid://feqrxbgcjnum" path="res://Scenes/player.gdshader" id="3_fkybt"]
 [ext_resource type="PackedScene" uid="uid://cpwjp56ve0wmq" path="res://Scenes/Abilities/AbilityController.tscn" id="4_vgqql"]
 [ext_resource type="Texture2D" uid="uid://d2g3ab25mtgv0" path="res://Assets/meleeAttack_plusCharacters+(1).png" id="5_fkybt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
 atlas = ExtResource("5_fkybt")
 region = Rect2(69, 0, 7, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3wgy"]
+shader = ExtResource("3_fkybt")
+shader_parameter/hurt_color = Vector4(1, 1, 1, 1)
+shader_parameter/is_hurt = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("1_v0iea")
@@ -121,6 +127,7 @@ texture = SubResource("AtlasTexture_7dp3o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_x3wgy")
 sprite_frames = SubResource("SpriteFrames_x3wgy")
 animation = &"Run"
 autoplay = "Idle"

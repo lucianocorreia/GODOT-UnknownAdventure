@@ -14,3 +14,4 @@ script = ExtResource("2_52m15")
 [node name="AbilityTargetPlayer" parent="." instance=ExtResource("3_h7aik")]
 
 [node name="AbilityDealDamage" parent="." instance=ExtResource("4_h4m8e")]
+ExecDelay = 0.5

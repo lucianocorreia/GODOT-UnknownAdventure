@@ -2,7 +2,18 @@ using Godot;
 
 public partial class AbilityComponent : Node
 {
-    public virtual void Activate(AbilityContext context)
+    [Export]
+    public float ExecDelay { get; private set; } = 0f;
+
+    public async void Activate(AbilityContext context)
     {
+        if (ExecDelay > 0)
+        {
+            await ToSignal(GetTree().CreateTimer(ExecDelay), "timeout");
+        }
+
+        ActivateExec(context);
     }
+
+    protected virtual void ActivateExec(AbilityContext context) { }
 }

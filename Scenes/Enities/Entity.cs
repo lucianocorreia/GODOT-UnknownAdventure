@@ -33,6 +33,8 @@ public partial class Entity : Node2D
 
         Health -= damage;
         Health = Math.Max(0, Health);
+        ShowDamageTakenEffectAsync();
+        ShowDamageText(damage);
 
         if (Health <= 0)
         {
@@ -61,5 +63,17 @@ public partial class Entity : Node2D
             currentAnimation = null;
         }
     }
+
+    private void ShowDamageText(float damage)
+    {
+        var animation = AnimatedSprite.Animation;
+        var FrameTexture = AnimatedSprite.SpriteFrames.GetFrameTexture(animation, 0);
+        var height = FrameTexture.GetHeight();
+        var spawnPosition = new Vector2(Position.X, Position.Y - (height * 0.5f));
+
+        FloatText.Instance.ShowDamageText(damage.ToString(), spawnPosition, Colors.White);
+    }
+
+    public virtual void ShowDamageTakenEffectAsync() { }
 
 }

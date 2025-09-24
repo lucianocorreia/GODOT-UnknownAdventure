@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmqf88kksvair"]
+
+[ext_resource type="Script" uid="uid://c7uahcp2a1eo3" path="res://Scenes/Abilities/TurnToMouseComponent.cs" id="1_f8ctd"]
+
+[node name="TurnToMouseComponent" type="Node"]
+script = ExtResource("1_f8ctd")

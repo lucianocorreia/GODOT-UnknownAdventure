@@ -11,8 +11,8 @@ public partial class Entity : Node2D
     private AnimationWrapper currentAnimation;
     private bool isDead = false;
 
+    public float TurningCooldown { get; set; } = 0.0f;
     public float Health { get; protected set; }
-
 
     public override void _Ready()
     {
@@ -72,6 +72,18 @@ public partial class Entity : Node2D
         var spawnPosition = new Vector2(Position.X, Position.Y - (height * 0.5f));
 
         FloatText.Instance.ShowDamageText(damage.ToString(), spawnPosition, Colors.White);
+    }
+
+    public void TurnToPosition(Vector2 targetPosition)
+    {
+        if (Position.X > targetPosition.X && !AnimatedSprite.FlipH)
+        {
+            AnimatedSprite.FlipH = true;
+        }
+        else if (Position.X < targetPosition.X && AnimatedSprite.FlipH)
+        {
+            AnimatedSprite.FlipH = false;
+        }
     }
 
     public virtual void ShowDamageTakenEffectAsync() { }

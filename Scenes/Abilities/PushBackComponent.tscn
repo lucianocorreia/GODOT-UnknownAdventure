@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6lrrlbm652jh"]
+
+[ext_resource type="Script" uid="uid://c1hq0wh4xok7q" path="res://Scenes/Abilities/PushBackComponent.cs" id="1_xxp3e"]
+
+[node name="PushBackComponent" type="Node"]
+script = ExtResource("1_xxp3e")

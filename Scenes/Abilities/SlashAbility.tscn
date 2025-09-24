@@ -1,12 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cba811d3wfdaw"]
+[gd_scene load_steps=6 format=3 uid="uid://cba811d3wfdaw"]
 
 [ext_resource type="Script" uid="uid://byirxaa4gtxco" path="res://Scenes/Abilities/SlashAbility.cs" id="1_8jtw7"]
 [ext_resource type="PackedScene" uid="uid://clyttp3wd6b4t" path="res://Scenes/Abilities/SpawnComponent.tscn" id="2_8jtw7"]
 [ext_resource type="PackedScene" uid="uid://c1qehp213m1e3" path="res://Scenes/Abilities/SlashEffect.tscn" id="3_8jtw7"]
+[ext_resource type="PackedScene" uid="uid://c6lrrlbm652jh" path="res://Scenes/Abilities/PushBackComponent.tscn" id="4_jotwh"]
+[ext_resource type="PackedScene" uid="uid://cmqf88kksvair" path="res://Scenes/Abilities/TurnToMouseComponent.tscn" id="5_g4w3l"]
 
 [node name="SlashAbility" type="Node"]
 script = ExtResource("1_8jtw7")
+Cooldown = 1.0
 
 [node name="SpawnComponent" parent="." instance=ExtResource("2_8jtw7")]
 SceneToSpawn = ExtResource("3_8jtw7")
 IsChild = true
+
+[node name="PushBackComponent" parent="." instance=ExtResource("4_jotwh")]
+PushDuration = 0.1
+
+[node name="TurnToMouseComponent" parent="." instance=ExtResource("5_g4w3l")]

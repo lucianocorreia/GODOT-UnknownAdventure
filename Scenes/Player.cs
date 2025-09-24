@@ -68,6 +68,8 @@ public partial class Player : Entity
     {
         isMoving = false;
 
+        TurningCooldown = Mathf.Max(0, TurningCooldown - (float)delta);
+
         var horizontal = Input.GetAxis("Left", "Right");
         var vertical = Input.GetAxis("Up", "Down");
 
@@ -79,17 +81,17 @@ public partial class Player : Entity
         if (normalized.Length() > 0)
         {
             isMoving = true;
-            if (horizontal > 0)
+
+            if (TurningCooldown == 0)
             {
-                AnimatedSprite.FlipH = false;
-                // WeaponSprite.Position = weaponRightPosition;
-                // WeaponSprite.Rotation = Mathf.DegToRad(35);
-            }
-            else if (horizontal < 0)
-            {
-                AnimatedSprite.FlipH = true;
-                // WeaponSprite.Position = weaponLeftPosition;
-                // WeaponSprite.Rotation = Mathf.DegToRad(-35);
+                if (horizontal > 0)
+                {
+                    AnimatedSprite.FlipH = false;
+                }
+                else if (horizontal < 0)
+                {
+                    AnimatedSprite.FlipH = true;
+                }
             }
 
         }

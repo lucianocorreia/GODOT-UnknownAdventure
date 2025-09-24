@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://5stsgcn53c1h"]
+
+[node name="GetTargetComponent" type="Node"]
